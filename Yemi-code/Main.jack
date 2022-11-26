@@ -1,0 +1,125 @@
+
+class Main {
+   function void main() {
+      var Array fortuneList; 
+      var int choice;
+      var int userChoice;
+      var int compChoice;
+      var int i;
+      var int sortaRan;
+      var String wordChoice;
+      var int compNumChoice;
+      var String fortuneAsk;
+      var String finalFortune;
+
+      do Output.printString("Hello! ");
+      do Output.println();
+      let sortaRan = Keyboard.readInt("type any number ");
+      do Output.printString("Welcome to CS 3650 Game center");
+      do Output.println();
+      do Output.printString("Select a game");
+      do Output.println();
+      do Output.printString("1. Rock Paper Scissors");
+      do Output.println();
+      do Output.printString("2. Fortune telling");
+      do Output.println();
+      let choice = Keyboard.readInt("Which would you like to play? ");
+      
+      
+
+      if (choice = 1){  // rock paper scissors
+        do Output.printString("You selected: Rock Paper Scissors - ");
+        do Output.printString("Select One ");
+        do Random.setSeed(sortaRan);
+        do Output.println();
+        let userChoice = Keyboard.readInt("1. Rock 2.Paper 3.Scissors ");
+        let compChoice = Random.randRange(300);
+        
+        if( (compChoice > -1 ) & (compChoice < 100) ){
+          let wordChoice = "rock";
+          let compNumChoice = 1;
+        }
+        if( (compChoice > 99) & (compChoice < 200)){
+          let wordChoice = "paper";
+          let compNumChoice = 2;
+        }
+        if(( compChoice > 199) & (compChoice < 301)){
+          let wordChoice = "scissors";
+          let compNumChoice = 3;
+        }
+        do Output.printString("Computer Chose: ");
+        do Output.printString(wordChoice);
+        do Output.println();
+
+        if( userChoice = 1){ //user picks rock
+          if(compNumChoice = 1){do Output.printString( "Its a tie" );}
+          if(compNumChoice = 2){do Output.printString( "You lose" );}
+          if(compNumChoice = 3){do Output.printString( "Winner!" );}
+
+        }
+        if( userChoice = 2){
+          if(compNumChoice = 1){do Output.printString( "Winner!" );}
+          if(compNumChoice = 2){do Output.printString( "Its a tie" );}
+          if(compNumChoice = 3){do Output.printString( "You lose" );}
+        }
+        if( userChoice = 3){
+          if(compNumChoice = 1){do Output.printString( "You lose" );}
+          if(compNumChoice = 2){do Output.printString( "Winner!" );}
+          if(compNumChoice = 3){do Output.printString( "Its a tie" );}
+        }
+
+      }
+      if (choice = 2){  //fortune telling
+        do Output.printString("You chose fortune telling");
+        do Output.println();
+        let fortuneAsk = Keyboard.readLine("What would you like to ask? ");
+        let fortuneList = Array.new(8); // constructs the array
+        let fortuneList[0] = "Yes, without a doubt";
+        let fortuneList[1] = "It is certain";
+        let fortuneList[2] = "Outlook, not so good";
+        let fortuneList[3] = "Ask again later";
+        let fortuneList[4] = "Sources say no";
+        let fortuneList[5] = "Most likely";
+        let fortuneList[6] = "Signs point to yes";
+        let fortuneList[7] = "Very Doubtful";
+        do Random.setSeed(sortaRan);
+        let compChoice = Random.randRange(800);
+        if( (compChoice > -1 ) & (compChoice < 100) ){
+          let compNumChoice = 0;
+        }
+        if( (compChoice > 99) & (compChoice < 200)){
+          let compNumChoice = 1;
+        }
+        if(( compChoice > 199) & (compChoice < 300)){
+          let compNumChoice = 2;
+        }
+        if(( compChoice > 299) & (compChoice < 400)){
+          let compNumChoice = 3;
+        }
+        if(( compChoice > 399) & (compChoice < 500)){
+          let compNumChoice = 4;
+        }
+        if(( compChoice > 499) & (compChoice < 600)){
+          let compNumChoice = 5;
+        }
+        if(( compChoice > 599) & (compChoice < 700)){
+          let compNumChoice = 6;
+        }
+        if(( compChoice > 699) & (compChoice < 801)){
+          let compNumChoice = 7;
+        }
+        let finalFortune = fortuneList[compNumChoice];
+        do Output.printString("The fortune teller says: ");
+        do Output.printString(finalFortune);
+        do Output.println();
+       
+
+
+        
+      }
+
+     
+
+      return;
+   }
+}
